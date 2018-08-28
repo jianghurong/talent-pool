@@ -1,8 +1,12 @@
 <template>
     <div id="header">
-        <el-menu :default-active="activeIndex" mode="horizontal">
-            <el-menu-item index="1" class="fa fa-chrome"> LOGO </el-menu-item>
-            <el-menu-item index="2">简历上传</el-menu-item>
+        <el-menu :default-active="activeIndex" mode="horizontal" select="selectMenu">
+            <el-menu-item index="1" class="fa fa-chrome"> 
+                LOGO
+            </el-menu-item>
+            <el-menu-item index="2">
+               简历上传 
+            </el-menu-item>
             <el-menu-item index="3">用户信息</el-menu-item> 
             <el-menu-item index="4" style="float: right;">
                 <el-input v-model="input" placeholder="请输入内容"  class="input-with-select">
@@ -31,6 +35,21 @@ export default {
       input: "",
       select: ""
     };
+  },
+  methods: {
+      selectMenu: function(key) {
+          if (key != this.activeIndex) {
+              switch (key) {
+                    case "1" :
+                            this.$router.push({path: "/Upload"});
+                            break;
+                    case "2" :
+                            this.$router.push({path: "/Upload"});
+                            break;
+              }
+          }
+          
+      }
   }
 };
 </script>

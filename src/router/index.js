@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
+import Index from "@/components/view/Index";
+import Upload from "@/components/view/Upload";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import List from "@/components/List";
 import ResumeUpload from "@/components/ResumeUpload";
 import User from "@/components/User";
-import PreviewPdf from "@/components/PreviewPdf"
+import PreviewPdf from "@/components/PreviewPdf";
 
 Vue.use(Router);
 
@@ -14,8 +16,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: "/upload",
+      name: "Upload",
+      component: Upload
     },
     {
       path: "/header",
@@ -47,5 +54,6 @@ export default new Router({
       name:　"PreviewPdf",
       component: PreviewPdf
     }
-  ]
+  ],
+  mode: "history"
 });

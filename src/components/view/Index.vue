@@ -7,11 +7,10 @@
 </template>
 
 <script>
-import Header from "./Header";
-import List from "./List";
-import Footer from "./Footer";
+import Header from "../Header";
+import List from "../List";
+import Footer from "../Footer";
 export default {
-  name: 'HelloWorld',
   components: {
     Header,
     List,
@@ -19,7 +18,6 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
