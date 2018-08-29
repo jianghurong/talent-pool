@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from "@/components/view/Index";
-import Upload from "@/components/view/Upload";
-
+import Index from "@/components/Index";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import List from "@/components/List";
@@ -18,11 +16,6 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index
-    },
-    {
-      path: "/upload",
-      name: "Upload",
-      component: Upload
     },
     {
       path: "/header",

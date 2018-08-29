@@ -9,7 +9,7 @@
 <style>
 #resumeUpload {
     width: 1024px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 </style>
 <script>

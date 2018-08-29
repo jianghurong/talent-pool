@@ -19,7 +19,7 @@
 <style scoped>
 .footer {
     width: 768px;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 .footer a {
     text-decoration: none;
