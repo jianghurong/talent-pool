@@ -7,8 +7,10 @@
               </template>
             </el-table-column>
             <el-table-column label="职位">
-              <template slot-scope="scope">    
-                <span v-html="showData(scope.row.job)"></span>        
+              <template slot-scope="scope">
+                <el-tag>
+                  <span v-html="showData(scope.row.job)"></span>      
+                </el-tag>    
               </template>
             </el-table-column>
             <el-table-column prop="workLife" label="工作经验(年)" sortable></el-table-column>
@@ -35,6 +37,7 @@
 }
 </style>
 <script>
+import common from "../../static/js/common";
 // 使用 Mock
 const Mock = require("mockjs");
 const Random = Mock.Random;
@@ -69,12 +72,13 @@ export default {
     return {
       searchData: null, // 初始化搜索列表的数组
       tableData: [], // 初始化列表数组
+      themeColor: this.common.themeColor
     };
   },
   methods: {
     /** 
-     * @method 删除指定应聘者
-     * @param { nubmer } id 应聘者标识
+     * @method deleteUser 删除指定人才数据
+     * @param { nubmer } id 人才标识
      * @return { undefined }
     */
     deleteUser: function(id) {
@@ -91,7 +95,8 @@ export default {
         }); 
     },
     /**
-     * 
+     * @method getData 获取人才列表
+     * @return { undefined }
      */
     getData: function() {
       axios
@@ -106,12 +111,12 @@ export default {
       });
     },
     /**
-     * @method 搜索结果关键词高亮
+     * @method showData 搜索结果关键词高亮
      * @param { string } val 搜索结果（高亮前）
      */
     showData: function(val) {
         val = val + '';
-        return val.replace(this.keyword, '<font color="lightskyblue">' + this.keyword + '</font>');
+        return val.replace(this.keyword, '<font color="'+ this.common.themeColor + '">' + this.keyword + '</font>');
     }
   },
   created() {
@@ -120,7 +125,7 @@ export default {
   watch: {
     keyword:{
       /**
-       * @method 根据关键词匹配列表搜索结果
+       * @method handler 根据关键词匹配列表搜索结果
        * @return { undefined }
        */
       handler: function() {

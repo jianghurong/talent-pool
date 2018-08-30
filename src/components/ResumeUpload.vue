@@ -15,6 +15,11 @@
 <script>
 export default {
    methods: {
+       /**
+        * @method beforeResumeUpload 检测文件上传大小是否超过限制
+        * @param { object } file 文件数据
+        * @return { boolean } true-正常 false-超出限制
+        */
        beforeResumeUpload(file) {
             const isLt5M = file.size / 1024 / 1024 < 5; // 计算file.size是否小于5M，小于5M返回true，大于5M返回false
             if (!isLt5M) {

@@ -1,6 +1,5 @@
 <template>
   <div>
-      <SideBar></SideBar>
       <Header :activeIndex="activeIndex" @getKeyword="getword" @getActiveIndex="getIndex"></Header>
       <List :keyword="keyword" v-show="activeIndex === '1'"></List>
       <ResumeUpload v-show="activeIndex === '2'"></ResumeUpload>
@@ -11,7 +10,6 @@
 
 <script>
 import Header from "./Header";
-import SideBar from "./SideBar";
 import List from "./List";
 import ResumeUpload from "./ResumeUpload";
 import User from "./User";
@@ -19,7 +17,6 @@ import Footer from "./Footer";
 export default {
   components: {
     Header,
-    SideBar,
     List, 
     ResumeUpload,
     Footer,
@@ -32,9 +29,19 @@ export default {
     }
   },
   methods: {
+    /**
+     * @method getIndex 更换索引值传到子组件（header）
+     * @param { string } index 索引值(1-首页 2-上传 3-信息)
+     * @return { undefined }
+     */
     getIndex: function(index) {
       this.activeIndex = index;
     },
+    /**
+     * @method getword 更新关键词传到子组件（header）
+     * @param { string } keyword 关键词
+     * @return { undefined }
+     */
     getword: function(keyword) {
       this.keyword = keyword
     }
