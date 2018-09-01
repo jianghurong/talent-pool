@@ -8,8 +8,8 @@
             </el-table-column>
             <el-table-column label="职位">
               <template slot-scope="scope">
-                <el-tag>
-                  <span v-html="showData(scope.row.job)"></span>      
+                <el-tag :color="getTagColor(scope.row.job)">
+                  <span style="color: #fff" v-html="showData(scope.row.job)"></span>   
                 </el-tag>    
               </template>
             </el-table-column>
@@ -66,16 +66,42 @@ var data = Mock.mock("/getTalentList", {
 });
 export default {
   props: [
-    "keyword"
+    "keyword",
+    "themeColor"
   ],
   data() {
     return {
       searchData: null, // 初始化搜索列表的数组
       tableData: [], // 初始化列表数组
-      themeColor: this.common.themeColor
     };
   },
   methods: {
+    /**
+     * @method getTagColor 根据对应职位获取标签颜色
+     * @param job 职位
+     * @return { string } 返回颜色
+     */
+    getTagColor: function(job) {
+      let color = "";
+      switch (job) {
+        case "web前端":
+              color = "#409EFF";
+              break;
+        case "Node工程师":
+              color = "#67C23A";
+              break;
+        case "Php工程师":
+              color = "#88A6C5";
+              break;
+        case "Java工程师":
+              color = "#D76D3F"; 
+              break;
+        default:
+              color = this.themeColor;
+              break;
+      }
+      return color;
+    },
     /** 
      * @method deleteUser 删除指定人才数据
      * @param { nubmer } id 人才标识
@@ -86,10 +112,21 @@ export default {
         .then((res) => {
             // 如果res为true执行删除操作
             if (res) {
-                //根据row.id快速匹配到tableData中的那一行数据并且删除
-                this.tableData = this.tableData.filter(ele => {
+                if (this.keyword) {
+                   //根据row.id快速匹配到tableData中的那一行数据并且删除
+                    this.searchData = this.searchData.filter(ele => {
+                    this.tableData = this.tableData.filter(ele => {
+                      return ele.id !== id;
+                    });
                     return ele.id !== id;
-                });
+                    });
+                }
+                else {
+                   //根据row.id快速匹配到tableData中的那一行数据并且删除
+                    this.tableData = this.tableData.filter(ele => {
+                    return ele.id !== id;
+                    });
+                }
                 this.common.alertMessage("删除成功!", 1 , this);
             }
         }); 
@@ -104,6 +141,7 @@ export default {
       .then(res => {
         if (res.data.list) {
           this.tableData = res.data.list;
+          this.$emit("getDataList", res.data.list);
         }
       })
       .catch(err => {
@@ -116,7 +154,8 @@ export default {
      */
     showData: function(val) {
         val = val + '';
-        return val.replace(this.keyword, '<font color="'+ this.common.themeColor + '">' + this.keyword + '</font>');
+        let color = this.themeColor;
+        return val.replace(this.keyword, '<font color="'+ color + '">' + this.keyword + '</font>');
     }
   },
   created() {

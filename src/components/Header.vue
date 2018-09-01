@@ -1,7 +1,7 @@
 <template>
     <div id="header">
         <el-row>
-          <el-col :span="10">
+          <el-col :span="12">
                 <el-menu :default-active="activeIndex" mode="horizontal" @select="selectMenu">
                     <el-menu-item index="1">
                         <span class="fa fa-chrome" :style="{color: themeColor}">&nbsp;</span> 
@@ -11,9 +11,10 @@
                         简历上传 
                     </el-menu-item>
                     <el-menu-item index="3">用户信息</el-menu-item>
+                    <el-menu-item index="4">图表数据</el-menu-item>
                 </el-menu>
           </el-col>
-          <el-col class="header-title header-border_bottom" :style="{ color: themeColor }" :span="6">{{title}}</el-col>
+          <el-col class="header-title header-border_bottom" :style="{ color: themeColor }" :span="4">{{title}}</el-col>
           <el-col class="header-picker_color header-border_bottom" :span="2">
               <el-color-picker v-model="themeColor" @change="changeColor"></el-color-picker>
           </el-col>
@@ -53,7 +54,7 @@ export default {
     ],
     data() {
         return {
-            themeColor: this.common.themeColor,
+            themeColor: "#29B8F5",
             input: "",
             title: "",
         };
@@ -85,7 +86,7 @@ export default {
          * @param { string } value 选择器颜色值
          */
         changeColor: function(value) {
-            this.common.themeColor = value;
+             this.$emit("getThemeColor", value);
         },
         /**
          * @method setTitleText 打字特效

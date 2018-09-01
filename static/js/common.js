@@ -1,6 +1,5 @@
 
 export default {
-    themeColor: "#32C3EF",
     /**
      * @method 弹出提示框
      * @param { string } text: 提示内容
