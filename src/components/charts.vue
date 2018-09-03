@@ -1,7 +1,7 @@
 <template>
     <div id="charts">
-        <div ref="JobEcharts" class="echarts" :style="{width: '1024px', height: '400px'}"></div>
-         <div ref="workLifeEcharts" class="echarts" :style="{width: '1024px', height: '400px'}"></div>
+        <div ref="JobEcharts" class="echarts" :style="{width: '512px', height: '400px'}"></div>
+        <div ref="workLifeEcharts" class="echarts" :style="{width: '512px', height: '400px'}"></div>
     </div>
 </template>
 <style scoped>
