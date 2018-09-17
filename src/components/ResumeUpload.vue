@@ -8,7 +8,7 @@
 </template>
 <style>
 #resumeUpload {
-    width: 1024px;
+    width: 1200px;
     margin: 20px auto;
 }
 </style>

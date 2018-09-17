@@ -32,7 +32,7 @@
 </template>
 <style scoped>
 #list {
-  width: 1024px;
+  width: 1200px;
   margin: 0 auto 20px auto;
 }
 </style>

@@ -12,6 +12,7 @@
                     </el-menu-item>
                     <el-menu-item index="3">用户信息</el-menu-item>
                     <el-menu-item index="4">图表数据</el-menu-item>
+                    <!-- <el-menu-item index="5">代码高亮</el-menu-item> -->
                 </el-menu>
           </el-col>
           <el-col class="header-title header-border_bottom" :style="{ color: themeColor }" :span="4">{{title}}</el-col>
@@ -28,7 +29,7 @@
 </template>
 <style scoped>
 #header {
-    width: 1024px;
+    width: 1200px;
     margin: 0 auto;
     background: #fff;
 }

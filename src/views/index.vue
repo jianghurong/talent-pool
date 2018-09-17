@@ -5,6 +5,7 @@
       <ResumeUpload v-show="activeIndex === '2'"></ResumeUpload>
       <User v-show="activeIndex === '3'"></User>
       <Charts v-show="activeIndex === '4'" :dataList="dataList"></Charts>
+      <Highlight v-show="activeIndex === '5'"></Highlight>
     <Footer></Footer>
   </div>
 </template>
@@ -17,7 +18,8 @@ export default {
     ResumeUpload: () => import("../components/ResumeUpload"),
     Footer: () => import("../components/Footer"),
     Charts: () => import("../components/Charts"),
-    User: () => import("../components/User")
+    User: () => import("../components/User"),
+    Highlight: () => import("../components/Highlight")
   },
   data () {
     return {

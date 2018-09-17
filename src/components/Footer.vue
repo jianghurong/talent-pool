@@ -18,7 +18,7 @@
 </template>
 <style scoped>
 .footer {
-    width: 1024px;
+    width: 1200px;
     margin: 0 auto;
 }
 .footer a {

@@ -53,7 +53,7 @@ export default {
                 })
                 return { value: count, name: ele};
             })
-            charts.setOption(option.setEchartsPieOption("TALENT-POOL 职位统计图", jobList, jobList2));
+            charts.setOption(option.setEchartsPieOption("TALENT-POOL 职位分布统计图", jobList, jobList2));
             let charts2 = echarts.init(this.$refs.workLifeEcharts);
             let list2 = this.getList("workLife");
             let workLifeList = Array.from(new Set(list2));

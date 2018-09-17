@@ -27,7 +27,7 @@
 </template>
 <style scoped>
 #user {
-    width: 1024px;
+    width: 1200px;
     margin: 20px auto 0 auto;
 }
 </style>

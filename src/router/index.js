@@ -13,6 +13,11 @@ export default new Router({
       path: "/sidebar",
       name: "Sidebar",
       component: () => import("@/components/Sidebar")
+    },
+    {
+      path: "/highlight",
+      name: "Highlight",
+      component: () => import("@/components/Highlight")
     }
   ],
   mode: "history" // 去掉路由地址的"#""
